@@ -32,7 +32,7 @@ class SecondViewController: UIViewController {
         button.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
         button.setTitle("🐰", for: UIControl.State.normal)
         button.titleLabel!.font  = UIFont(name: ".SFUITEXT", size: 40)
-        button.addTarget(self, action: #selector(ViewController.buttonAction(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(SecondViewController.buttonAction(_:)), for: .touchUpInside)
         
         self.view.addSubview(button)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
