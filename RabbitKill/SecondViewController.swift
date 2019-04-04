@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class SecondViewController: UIViewController {
+    
     @IBOutlet weak var score: UILabel!
     var click = 0
     override func viewDidLoad() {
@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         var timer:Timer?
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
-
-
+        
+        
     }
     func RandomButton(){
         let button = UIButton(type: UIButton.ButtonType.system) as UIButton
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         sender.removeFromSuperview()
         print("Button tapped")
     }
-
-
+    
+    
 }
 
