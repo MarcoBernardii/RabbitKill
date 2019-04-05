@@ -15,7 +15,9 @@
 		6A1CC5C32253459D00697DE9 /* RabbitKillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1CC5C22253459D00697DE9 /* RabbitKillTests.swift */; };
 		6A1CC5CE2253459D00697DE9 /* RabbitKillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1CC5CD2253459D00697DE9 /* RabbitKillUITests.swift */; };
 		6A3523A22256867100D699BA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3523A12256867100D699BA /* SecondViewController.swift */; };
-		6A3523A62256883600D699BA /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3523A52256883500D699BA /* play-button.png */; };
+		6A4001A12257CE320049C5FC /* Rabbit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A40019F2257CE320049C5FC /* Rabbit.xcdatamodeld */; };
+		6A5BC01C225764A400F893E5 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5BC01B225764A400F893E5 /* StorageService.swift */; };
+		6A988FC0225728050065EBFC /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A988FBF225728050065EBFC /* Scoreboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,9 @@
 		6A1CC5CD2253459D00697DE9 /* RabbitKillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitKillUITests.swift; sourceTree = "<group>"; };
 		6A1CC5CF2253459D00697DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A3523A12256867100D699BA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		6A3523A52256883500D699BA /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-button.png"; path = "../../../Downloads/play-button.png"; sourceTree = "<group>"; };
+		6A4001A02257CE320049C5FC /* Rabbit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rabbit.xcdatamodel; sourceTree = "<group>"; };
+		6A5BC01B225764A400F893E5 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		6A988FBF225728050065EBFC /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +105,10 @@
 		6A1CC5AC2253459B00697DE9 /* RabbitKill */ = {
 			isa = PBXGroup;
 			children = (
+				6A4001A52257D01D0049C5FC /* Storage */,
+				6A4001A42257CFFC0049C5FC /* Views */,
 				6A1CC5AD2253459B00697DE9 /* AppDelegate.swift */,
-				6A1CC5AF2253459B00697DE9 /* ViewController.swift */,
 				6A1CC5B12253459B00697DE9 /* Main.storyboard */,
-				6A3523A12256867100D699BA /* SecondViewController.swift */,
-				6A3523A52256883500D699BA /* play-button.png */,
 				6A1CC5B42253459D00697DE9 /* Assets.xcassets */,
 				6A1CC5B62253459D00697DE9 /* LaunchScreen.storyboard */,
 				6A1CC5B92253459D00697DE9 /* Info.plist */,
@@ -129,6 +132,25 @@
 				6A1CC5CF2253459D00697DE9 /* Info.plist */,
 			);
 			path = RabbitKillUITests;
+			sourceTree = "<group>";
+		};
+		6A4001A42257CFFC0049C5FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A3523A12256867100D699BA /* SecondViewController.swift */,
+				6A988FBF225728050065EBFC /* Scoreboard.swift */,
+				6A1CC5AF2253459B00697DE9 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6A4001A52257D01D0049C5FC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				6A40019F2257CE320049C5FC /* Rabbit.xcdatamodeld */,
+				6A5BC01B225764A400F893E5 /* StorageService.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A1CC5B82253459D00697DE9 /* LaunchScreen.storyboard in Resources */,
-				6A3523A62256883600D699BA /* play-button.png in Resources */,
 				6A1CC5B52253459D00697DE9 /* Assets.xcassets in Resources */,
 				6A1CC5B32253459B00697DE9 /* Main.storyboard in Resources */,
 			);
@@ -263,9 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A5BC01C225764A400F893E5 /* StorageService.swift in Sources */,
+				6A4001A12257CE320049C5FC /* Rabbit.xcdatamodeld in Sources */,
 				6A3523A22256867100D699BA /* SecondViewController.swift in Sources */,
 				6A1CC5B02253459B00697DE9 /* ViewController.swift in Sources */,
 				6A1CC5AE2253459B00697DE9 /* AppDelegate.swift in Sources */,
+				6A988FC0225728050065EBFC /* Scoreboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +618,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6A40019F2257CE320049C5FC /* Rabbit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6A4001A02257CE320049C5FC /* Rabbit.xcdatamodel */,
+			);
+			currentVersion = 6A4001A02257CE320049C5FC /* Rabbit.xcdatamodel */;
+			path = Rabbit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6A1CC5A22253459B00697DE9 /* Project object */;
 }

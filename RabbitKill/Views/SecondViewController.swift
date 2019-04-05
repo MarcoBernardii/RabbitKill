@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SecondViewController: UIViewController {
     
@@ -25,13 +26,13 @@ class SecondViewController: UIViewController {
         let button = UIButton(type: UIButton.ButtonType.system) as UIButton
         let x = UIScreen.main.bounds.width
         let y = UIScreen.main.bounds.height
-        let buttonWidth:CGFloat = 50
-        let buttonHeight:CGFloat = 50
+        let buttonWidth:CGFloat = 100
+        let buttonHeight:CGFloat = 100
         let xPostion:CGFloat = CGFloat.random(in: 0 ..< x - buttonWidth)
         let yPostion:CGFloat = CGFloat.random(in: 0 ..< y - buttonHeight)
         button.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
         button.setTitle("🐰", for: UIControl.State.normal)
-        button.titleLabel!.font  = UIFont(name: ".SFUITEXT", size: 40)
+        button.titleLabel!.font  = UIFont(name: ".SFUITEXT", size: 100)
         button.addTarget(self, action: #selector(SecondViewController.buttonAction(_:)), for: .touchUpInside)
         
         self.view.addSubview(button)
@@ -48,7 +49,6 @@ class SecondViewController: UIViewController {
     @objc func buttonAction(_ sender:UIButton!)
     {
         click += 1
-        score.text = String(click)
         sender.removeFromSuperview()
         print("Button tapped")
     }
