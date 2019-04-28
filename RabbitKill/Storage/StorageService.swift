@@ -1,4 +1,4 @@
-//
+ //
 //  StorageService.swift
 //  RabbitKill
 //
@@ -33,6 +33,7 @@ class SalvaParametri
         }
         return parametro
     }
+    
     static public func salvaParametro(nomeParametro: String,valore: String)
     {
         UserDefaults.standard.set(valore, forKey: nomeParametro)

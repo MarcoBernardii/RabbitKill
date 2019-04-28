@@ -17,37 +17,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var bestp3label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
-        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-        newUser.setValue("Shashikant", forKey: "username")
-        newUser.setValue("1234", forKey: "password")
-        newUser.setValue("1", forKey: "age")
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
+        if (SalvaParametri.leggiParametro(nomeParametro: "best") == ""){
+            bestScorelabel.text = "none"
+        } else {
+            bestScorelabel.text = SalvaParametri.leggiParametro(nomeParametro: "best")
         }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-        //request.predicate = NSPredicate(format: "age = %@", "12")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "username") as! String)
-            }
-            
-        } catch {
-            
-            print("Failed")
+        if (SalvaParametri.leggiParametro(nomeParametro: "first") == ""){
+            bestp1label.text  = "free"
+        } else {
+            bestp1label.text  = SalvaParametri.leggiParametro(nomeParametro: "first")
         }
-        SalvaParametri.salvaParametro(nomeParametro: "best", valore: "98394")
-        bestScorelabel.text = SalvaParametri.leggiParametro(nomeParametro: "best")
-        bestp1label.text  = SalvaParametri.leggiParametro(nomeParametro: "first")
-        bestp2label.text  = SalvaParametri.leggiParametro(nomeParametro: "second")
-        bestp3label.text  = SalvaParametri.leggiParametro(nomeParametro: "third")
+        if (SalvaParametri.leggiParametro(nomeParametro: "second") == ""){
+            bestp2label.text  = "free"
+        } else {
+            bestp2label.text  = SalvaParametri.leggiParametro(nomeParametro: "second")
+        }
+        if (SalvaParametri.leggiParametro(nomeParametro: "third") == ""){
+            bestp3label.text  = "free"
+        } else {
+            bestp3label.text  = SalvaParametri.leggiParametro(nomeParametro: "third")
+        }
         // Do any additional setup after loading the view.
 
 
