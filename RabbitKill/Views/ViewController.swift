@@ -11,35 +11,45 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    @IBAction func reset(_ sender: Any) {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        ReloadData()
+    }
     @IBOutlet weak var bestScorelabel: UILabel!
     @IBOutlet weak var bestp1label: UILabel!
     @IBOutlet weak var bestp2label: UILabel!
     @IBOutlet weak var bestp3label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ReloadData()
+        // Do any additional setup after loading the view.
+
+
+    }
+    func ReloadData(){
         if (SalvaParametri.leggiParametro(nomeParametro: "best") == ""){
             bestScorelabel.text = "none"
         } else {
             bestScorelabel.text = SalvaParametri.leggiParametro(nomeParametro: "best")
         }
-        if (SalvaParametri.leggiParametro(nomeParametro: "first") == ""){
+        var scoreboard = SalvaParametri.scoreBoardRead()
+        if (scoreboard.0 == ""){
             bestp1label.text  = "free"
         } else {
-            bestp1label.text  = SalvaParametri.leggiParametro(nomeParametro: "first")
+            bestp1label.text  = scoreboard.0
         }
-        if (SalvaParametri.leggiParametro(nomeParametro: "second") == ""){
+        if (scoreboard.1 == ""){
             bestp2label.text  = "free"
         } else {
-            bestp2label.text  = SalvaParametri.leggiParametro(nomeParametro: "second")
+            bestp2label.text  = scoreboard.1
         }
-        if (SalvaParametri.leggiParametro(nomeParametro: "third") == ""){
+        if (scoreboard.2 == ""){
             bestp3label.text  = "free"
         } else {
-            bestp3label.text  = SalvaParametri.leggiParametro(nomeParametro: "third")
+            bestp3label.text  = scoreboard.2
         }
-        // Do any additional setup after loading the view.
-
-
     }
 
 }
