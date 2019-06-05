@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 class SecondViewController: UIViewController {
-    @IBOutlet var tempBar: UIView!
+    @IBOutlet weak var proggView: UIView!
     @IBOutlet weak var labelScore: UILabel!
     let x = UIScreen.main.bounds.width
     let y = UIScreen.main.bounds.height
@@ -26,11 +26,13 @@ class SecondViewController: UIViewController {
 
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         self.backgroundImage = UIImageView(image: UIImage(named: "bg"))
         self.backgroundImage.contentMode = .scaleAspectFill
         self.view.insertSubview(self.backgroundImage, at: 0)
         giroTondo()
+        
         
         
     }
@@ -63,9 +65,10 @@ class SecondViewController: UIViewController {
                 loseButton.frame = CGRect(x:(self.x - 250)/2, y:(self.y - 100)/2, width:250, height:100)
                 loseButton.setTitle("You Lost", for: UIControl.State.normal)
                 loseButton.titleLabel!.font  = UIFont(name: ".SFUITEXT", size: 60)
+                loseButton.setTitleColor(UIColor.black, for: .normal)
                 loseButton.addTarget(self, action: #selector(SecondViewController.losebuttonAction(_:)), for: .touchUpInside)
                 self.view.addSubview(loseButton)
-                self.checkTopScores(score: self.i - 1 )
+                self.checkTopScores(score: self.i - 1, nscore: SalvaParametri.leggiParametro(nomeParametro: "nscore") )
                 self.button.removeFromSuperview()
             } else {
                 
@@ -78,8 +81,8 @@ class SecondViewController: UIViewController {
         
     }
     
-    func checkTopScores(score: Int){
-        var bestscore:Int  = Int(SalvaParametri.leggiParametro(nomeParametro: "best"))!
+    func checkTopScores(score: Int, nscore: String){
+        let bestscore:Int  = Int(SalvaParametri.leggiParametro(nomeParametro: "best") != "" ? SalvaParametri.leggiParametro(nomeParametro: "best") : "0")!
         if (score  > bestscore){
             SalvaParametri.salvaParametro(nomeParametro: "best", valore: String(score))
         }
@@ -87,23 +90,36 @@ class SecondViewController: UIViewController {
         var first:Int = Int(valori.0)!
         var second:Int = Int(valori.1)!
         var third:Int = Int(valori.2)!
+        var fname:String = valori.3
+        var sname:String  = valori.4
+        var tname:String = valori.5
         var temp = 0
+        var ntemp = ""
         var temp2 = 0
+        var ntemp2 = ""
         if (score > first){
             temp = first
+            ntemp = fname
             first = score
+            fname = nscore
             temp2 = second
+            ntemp2 = sname
             second = temp
+            sname = ntemp
             third = temp2
+            tname = ntemp2
         } else if (score > second){
             temp = second
+            ntemp = sname
             second = score
+            sname = nscore
             third = temp
+            tname = ntemp
         }  else if (score > third){
             third = score
+            tname = nscore
         }
-        SalvaParametri.scoreBoardSave(first: first, second: second, third: third)
-        
+        SalvaParametri.scoreBoardSave(first: first, second: second, third: third, fname: fname, sname: sname, tname: tname)
     }
     @objc func losebuttonAction(_ sender:UIButton!)
     {
@@ -114,7 +130,7 @@ class SecondViewController: UIViewController {
     }
     @objc func buttonAction(_ sender:UIButton!)
     {
-        var label:Int = Int(labelScore.text!)!
+        let label:Int = Int(labelScore.text!)!
         self.labelScore.text = String(label + 1)
         placed = false
         sender.removeFromSuperview()

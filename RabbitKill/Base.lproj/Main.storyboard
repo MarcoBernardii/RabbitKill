@@ -79,12 +79,12 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="play-button"/>
                                 <connections>
-                                    <segue destination="B1f-T7-zq5" kind="show" id="UGx-6P-YWX"/>
+                                    <action selector="btnGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aQE-L6-lKM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-mM-nAz">
                                 <rect key="frame" x="346" y="826" width="56" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -93,6 +93,13 @@
                                     <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2hd-6J-t7S"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nickname" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irk-Hc-Rf5">
+                                <rect key="frame" x="88" y="481" width="238" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -125,6 +132,7 @@
                         <outlet property="bestp1label" destination="M0x-7t-Vnr" id="NQc-fL-mpP"/>
                         <outlet property="bestp2label" destination="G5p-xf-Gs9" id="eyi-a0-Tjr"/>
                         <outlet property="bestp3label" destination="8Wq-Bb-ssP" id="jsz-lN-bLz"/>
+                        <outlet property="lblNick" destination="irk-Hc-Rf5" id="JF3-LG-xDA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -153,17 +161,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5e5-GI-rRD">
-                                <rect key="frame" x="132" y="173" width="150" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PGE-3q-Ood"/>
                     </view>
                     <connections>
                         <outlet property="labelScore" destination="A7E-vK-rE7" id="9HS-pJ-D0L"/>
-                        <outlet property="tempBar" destination="1UV-G3-7zb" id="uZe-a0-gaw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6K-4W-m3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
